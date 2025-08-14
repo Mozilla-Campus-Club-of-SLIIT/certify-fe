@@ -1,4 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Certify Frontend
+
+This is the frontend for the Certify project, built with Next.js and TypeScript.
+
+## Prerequisites
+- Node.js (v18 or above recommended)
+- npm
+
+## Setup
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Start the development server:
+   ```sh
+   npm run dev
+   ```
+3. The app will be available at `http://localhost:3000` by default.
+
+## Environment Variables
+- Create a `.env.local` file if you need to override API endpoints.
+- Example:
+  ```env
+  NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+  ```
 
 ## Getting Started
 
@@ -6,12 +30,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
