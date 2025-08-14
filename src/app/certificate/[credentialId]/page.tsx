@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import CertificateTemplate from "../../components/CertificateTemplate";
 
 type Certificate = {
   credentialId: string;
@@ -48,33 +49,17 @@ export default function CertificateDetailsPage() {
 
   return (
     <div className="bg-white min-h-screen flex items-center justify-center">
-      <div className="bg-white rounded-xl shadow-lg p-10 max-w-xl w-full">
-        {certificate ? (
-          <div className="bg-gray-50 p-6 rounded-lg border w-full text-black">
-            <h2 className="text-xl font-semibold mb-4 text-center text-black">
-              Certificate of Completion
-            </h2>
-            <p className="mb-2">
-              <b>Name:</b> {certificate.name}
-            </p>
-            <p className="mb-2">
-              <b>Course:</b> {certificate.course}
-            </p>
-            <p className="mb-2">
-              <b>Date Issued:</b>{" "}
-              {new Date(certificate.dateIssued).toLocaleDateString()}
-            </p>
-            <p className="mb-2">
-              <b>Issuer:</b> {certificate.issuer}
-            </p>
-            <p>
-              <b>Credential ID:</b> {certificate.credentialId}
-            </p>
-          </div>
-        ) : (
-          <div className="text-center">Certificate not found</div>
-        )}
-      </div>
+      {certificate ? (
+        <CertificateTemplate
+          name={certificate.name}
+          course={certificate.course}
+          dateIssued={certificate.dateIssued}
+          description={`This is to certify that ${certificate.name} has contributed as a ${certificate.course}.`}
+        />
+      ) : (
+        <div className="text-center">Certificate not found</div>
+      )}
     </div>
   );
 }
+// ...existing code...

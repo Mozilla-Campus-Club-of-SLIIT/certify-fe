@@ -61,7 +61,7 @@ export default function Home() {
         </h1>
         <p className="text-gray-700 text-center mb-6">
           Easily verify and showcase your achievements with Certify. Check
-          validity of your certificates in seconds.
+          validity of sliitmozilla certificates in seconds.
         </p>
 
         <form onSubmit={fetchCertificate} className="mb-6 flex gap-2 w-full">
