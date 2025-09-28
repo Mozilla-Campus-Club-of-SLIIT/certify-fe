@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type CertificateTemplateProps = {
   name: string;
@@ -9,6 +10,8 @@ type CertificateTemplateProps = {
   issuerRight?: string;
   issuerRightRole?: string;
   description?: string;
+  signatureLeft?: string; // base64 image
+  signatureRight?: string; // base64 image
 };
 
 export default function CertificateTemplate({
@@ -20,6 +23,8 @@ export default function CertificateTemplate({
   issuerRight = "Mohamed Asath",
   issuerRightRole = "Secretary",
   description = "We give this certificate because the recipient has participated in a social event that we organize.",
+  signatureLeft,
+  signatureRight,
 }: CertificateTemplateProps) {
   return (
     <div className="w-full max-w-[900px] mx-auto aspect-[16/9]">
@@ -52,8 +57,12 @@ export default function CertificateTemplate({
             style={{ objectFit: "contain" }}
           />
           <div className="flex flex-row items-center justify-center w-full mb-1 mt-1">
-            <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase mr-2">CERTIFICATE</span>
-            <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase">of Appreciation</span>
+            <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase mr-2">
+              CERTIFICATE
+            </span>
+            <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase">
+              of Appreciation
+            </span>
           </div>
           <div className="text-[0.9vw] font-medium text-[#222] mb-3 tracking-wide">
             We are proudly present this to
@@ -64,8 +73,21 @@ export default function CertificateTemplate({
           <div className="text-center text-[0.8vw] text-[#222] mb-3 max-w-[90%]">
             {description}
           </div>
+
+          {/* Signature and Medal Section */}
           <div className="flex justify-between items-end w-full mt-4 px-2">
+            {/* Left issuer */}
             <div className="flex flex-col items-center">
+              {signatureLeft && (
+                <Image
+                  src={signatureLeft}
+                  alt="Left Signature"
+                  width={100}
+                  height={50}
+                  className="mb-1"
+                  style={{ objectFit: "contain" }}
+                />
+              )}
               <div className="border-t border-black w-[10vw] mb-1" />
               <div className="font-semibold text-black text-[0.9vw]">
                 {issuerLeft}
@@ -74,6 +96,7 @@ export default function CertificateTemplate({
                 {issuerLeftRole}
               </div>
             </div>
+
             {/* Medal/Seal */}
             <div className="flex flex-col items-center">
               <svg
@@ -96,7 +119,19 @@ export default function CertificateTemplate({
                 {new Date(dateIssued).toLocaleDateString()}
               </div>
             </div>
+
+            {/* Right issuer */}
             <div className="flex flex-col items-center">
+              {signatureRight && (
+                <Image
+                  src={signatureRight}
+                  alt="Right Signature"
+                  width={100}
+                  height={50}
+                  className="mb-1"
+                  style={{ objectFit: "contain" }}
+                />
+              )}
               <div className="border-t border-black w-[10vw] mb-1" />
               <div className="font-semibold text-black text-[0.9vw]">
                 {issuerRight}
