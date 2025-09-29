@@ -67,7 +67,7 @@ export default function CertificateTemplate({
           <div className="text-[0.9vw] font-medium text-[#222] mb-3 tracking-wide">
             We are proudly present this to
           </div>
-          <div className="font-[cursive] text-[3.5vw] text-black mb-1">
+          <div className="font-playfair-display font-semibold text-[3.5vw] text-black mb-1 tracking-wide">
             {name}
           </div>
           <div className="text-center text-[0.8vw] text-[#222] mb-3 max-w-[90%]">
@@ -84,7 +84,7 @@ export default function CertificateTemplate({
                   alt="Left Signature"
                   width={50}
                   height={50}
-                  className="mb-1"
+                  className="mb-1 w-[6vw] h-[3vw] max-w-[60px] max-h-[36px] min-w-[30px] min-h-[18px]"
                   style={{ objectFit: "contain" }}
                 />
               )}
@@ -126,9 +126,9 @@ export default function CertificateTemplate({
                 <Image
                   src={signatureRight}
                   alt="Right Signature"
-                  width={60}
+                  width={50}
                   height={50}
-                  className="mb-1"
+                  className="mb-1 w-[6vw] h-[3vw] max-w-[60px] max-h-[36px] min-w-[30px] min-h-[18px]"
                   style={{ objectFit: "contain" }}
                 />
               )}
