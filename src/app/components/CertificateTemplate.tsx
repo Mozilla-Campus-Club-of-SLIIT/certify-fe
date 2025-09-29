@@ -5,6 +5,7 @@ type CertificateTemplateProps = {
   name: string;
   course: string;
   dateIssued: string;
+  categoryName?: string; // dynamic certificate category
   issuerLeft?: string;
   issuerLeftRole?: string;
   issuerRight?: string;
@@ -18,6 +19,7 @@ export default function CertificateTemplate({
   name,
   course,
   dateIssued,
+  categoryName = "CERTIFICATE OF APPRECIATION", // default full certificate title
   issuerLeft = "Sadeesha Perera",
   issuerLeftRole = "President",
   issuerRight = "Mohamed Asath",
@@ -53,15 +55,12 @@ export default function CertificateTemplate({
           <img
             src="/sliitmozilla-logo.png"
             alt="Favicon"
-            className="w-[10%] h-[10%] mb-1 rounded mt-2"
+            className="w-[15%] h-[15%] mb-5 rounded mt-2"
             style={{ objectFit: "contain" }}
           />
           <div className="flex flex-row items-center justify-center w-full mb-1 mt-1">
-            <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase mr-2">
-              CERTIFICATE
-            </span>
             <span className="text-[1.7vw] font-normal tracking-widest text-[#223] uppercase">
-              of Appreciation
+              {categoryName}
             </span>
           </div>
           <div className="text-[0.9vw] font-medium text-[#222] mb-3 tracking-wide">
