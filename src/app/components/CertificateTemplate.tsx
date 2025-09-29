@@ -82,7 +82,7 @@ export default function CertificateTemplate({
                 <Image
                   src={signatureLeft}
                   alt="Left Signature"
-                  width={100}
+                  width={50}
                   height={50}
                   className="mb-1"
                   style={{ objectFit: "contain" }}
@@ -126,7 +126,7 @@ export default function CertificateTemplate({
                 <Image
                   src={signatureRight}
                   alt="Right Signature"
-                  width={100}
+                  width={60}
                   height={50}
                   className="mb-1"
                   style={{ objectFit: "contain" }}
