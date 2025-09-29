@@ -9,6 +9,8 @@ type Certificate = {
   course: string;
   dateIssued: string;
   issuer: string;
+  categoryName?: string; // dynamic certificate category from DB
+  categoryCode?: string; // unique code for design selection
   signatures?: { image_b64: string }[];
 };
 
@@ -55,6 +57,8 @@ export default function CertificateDetailsPage() {
           name={certificate.name}
           course={certificate.course}
           dateIssued={certificate.dateIssued}
+          categoryName={certificate.categoryName}
+          categoryCode={certificate.categoryCode}
           description={`This is to certify that ${certificate.name} has contributed as a ${certificate.course}.`}
           signatureLeft={certificate.signatures?.[0]?.image_b64}
           signatureRight={certificate.signatures?.[1]?.image_b64}
