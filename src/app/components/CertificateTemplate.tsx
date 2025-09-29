@@ -119,6 +119,35 @@ export default function CertificateTemplate({
           </>
         );
 
+      case "holamozilla2025":
+        // Design 6: HolaMozilla 2025 - Professional minimal design
+        return (
+          <>
+            {/* Main top bar with subtle gradient */}
+            <div
+              className="absolute top-0 left-0 w-full h-[5%] z-10"
+              style={{
+                background: "linear-gradient(90deg, #6A15D2 0%, #6A15D2 100%)",
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }}
+            />
+            {/* Golden accent bar */}
+            <div
+              className="absolute top-0 left-0 w-full h-[1.5%] bg-[#FFB30D] z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            {/* Corner accent elements */}
+            <div
+              className="absolute top-0 left-0 w-[4%] h-[4%] bg-[#FFB30D] z-30"
+              style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+            />
+            <div
+              className="absolute top-0 right-0 w-[4%] h-[4%] bg-[#FFB30D] z-30"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
+            />
+          </>
+        );
+
       default:
         // Default design (original Mozilla style)
         return (
@@ -221,6 +250,35 @@ export default function CertificateTemplate({
             <div
               className="absolute bottom-0 left-0 w-full h-[3%] bg-lime-400 z-20"
               style={{ clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+          </>
+        );
+
+      case "holamozilla2025":
+        // Design 6: HolaMozilla 2025 - Professional minimal bottom design
+        return (
+          <>
+            {/* Main bottom bar */}
+            <div
+              className="absolute bottom-0 left-0 w-full h-[5%] z-10"
+              style={{
+                background: "linear-gradient(90deg, #6A15D2 0%, #6A15D2 100%)",
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+              }}
+            />
+            {/* Golden accent bar */}
+            <div
+              className="absolute bottom-0 left-0 w-full h-[1.5%] bg-[#FFB30D] z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            {/* Corner accent elements */}
+            <div
+              className="absolute bottom-0 left-0 w-[4%] h-[4%] bg-[#FFB30D] z-30"
+              style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 right-0 w-[4%] h-[4%] bg-[#FFB30D] z-30"
+              style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }}
             />
           </>
         );
