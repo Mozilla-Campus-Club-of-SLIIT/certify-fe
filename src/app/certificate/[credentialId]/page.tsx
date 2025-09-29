@@ -9,6 +9,7 @@ type Certificate = {
   course: string;
   dateIssued: string;
   issuer: string;
+  signatures?: { image_b64: string }[];
 };
 
 export default function CertificateDetailsPage() {
@@ -26,7 +27,7 @@ export default function CertificateDetailsPage() {
         const res = await fetch(`${baseUrl}/api/certificate/${credentialId}`);
         if (!res.ok) throw new Error("Certificate not found");
         const data = await res.json();
-        setCertificate(data);
+        setCertificate(data); // store entire certificate, including signatures
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
@@ -55,6 +56,8 @@ export default function CertificateDetailsPage() {
           course={certificate.course}
           dateIssued={certificate.dateIssued}
           description={`This is to certify that ${certificate.name} has contributed as a ${certificate.course}.`}
+          signatureLeft={certificate.signatures?.[0]?.image_b64}
+          signatureRight={certificate.signatures?.[1]?.image_b64}
         />
       ) : (
         <div className="text-center">Certificate not found</div>
@@ -62,4 +65,5 @@ export default function CertificateDetailsPage() {
     </div>
   );
 }
+
 // ...existing code...
