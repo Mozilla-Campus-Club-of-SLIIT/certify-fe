@@ -6,6 +6,7 @@ type CertificateTemplateProps = {
   course: string;
   dateIssued: string;
   categoryName?: string; // dynamic certificate category
+  categoryCode?: string; // unique code for design selection
   issuerLeft?: string;
   issuerLeftRole?: string;
   issuerRight?: string;
@@ -20,6 +21,7 @@ export default function CertificateTemplate({
   course,
   dateIssued,
   categoryName = "CERTIFICATE OF APPRECIATION", // default full certificate title
+  categoryCode = "DEFAULT", // default design code
   issuerLeft = "Sadeesha Perera",
   issuerLeftRole = "President",
   issuerRight = "Mohamed Asath",
@@ -28,27 +30,225 @@ export default function CertificateTemplate({
   signatureLeft,
   signatureRight,
 }: CertificateTemplateProps) {
+  // Function to render different top bar designs based on categoryCode
+  const renderTopBarDesign = () => {
+    switch (categoryCode) {
+      case "EXCELLENCE":
+        // Design 1: Double layer with gradient effect
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[8%] bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 z-10"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)" }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[3%] bg-gradient-to-r from-gold-400 via-yellow-400 to-gold-400 z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 80%)" }}
+            />
+          </>
+        );
+
+      case "PARTICIPATION":
+        // Design 2: Curved wave design
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[6%] bg-green-600 z-10"
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%)",
+              }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[2.5%] bg-emerald-400 z-20"
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 60%, 0 100%)",
+              }}
+            />
+          </>
+        );
+
+      case "ACHIEVEMENT":
+        // Design 3: Multi-layered angular design
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[7.5%] bg-red-700 z-10"
+              style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0 80%)" }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[4%] bg-orange-500 z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 95% 100%, 0 60%)" }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[1.5%] bg-yellow-400 z-30"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
+            />
+          </>
+        );
+
+      case "MEMBERSHIP":
+        // Design 4: Geometric diamond pattern
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[6.5%] bg-indigo-800 z-10"
+              style={{ clipPath: "polygon(0 0, 100% 0, 85% 100%, 15% 100%)" }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[3.5%] bg-cyan-400 z-20"
+              style={{ clipPath: "polygon(10% 0, 90% 0, 75% 100%, 25% 100%)" }}
+            />
+          </>
+        );
+
+      case "COMPLETION":
+        // Design 5: Stepped design
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[7%] bg-teal-700 z-10"
+              style={{
+                clipPath:
+                  "polygon(0 0, 100% 0, 100% 40%, 80% 70%, 60% 40%, 40% 70%, 20% 40%, 0 70%)",
+              }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[3%] bg-lime-400 z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 50%)" }}
+            />
+          </>
+        );
+
+      default:
+        // Default design (original Mozilla style)
+        return (
+          <>
+            <div
+              className="absolute top-0 left-0 w-full h-[7%] bg-[#1a2a3a] z-10"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}
+            />
+            <div
+              className="absolute top-0 left-0 w-full h-[2.8%] bg-[#ff9800] z-20"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 60%)" }}
+            />
+          </>
+        );
+    }
+  };
+
+  // Function to render different bottom bar designs based on categoryCode
+  const renderBottomBarDesign = () => {
+    switch (categoryCode) {
+      case "EXCELLENCE":
+        // Design 1: Double layer with gradient effect (matching top)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[8%] bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 z-10"
+              style={{ clipPath: "polygon(0 30%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[3%] bg-gradient-to-r from-gold-400 via-yellow-400 to-gold-400 z-20"
+              style={{ clipPath: "polygon(0 20%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+          </>
+        );
+
+      case "PARTICIPATION":
+        // Design 2: Curved wave design (matching top)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[6%] bg-green-600 z-10"
+              style={{
+                clipPath: "polygon(0 50%, 50% 0, 100% 50%, 100% 100%, 0 100%)",
+              }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[2.5%] bg-emerald-400 z-20"
+              style={{
+                clipPath: "polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%)",
+              }}
+            />
+          </>
+        );
+
+      case "ACHIEVEMENT":
+        // Design 3: Multi-layered angular design (matching top)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[7.5%] bg-red-700 z-10"
+              style={{ clipPath: "polygon(0 20%, 90% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[4%] bg-orange-500 z-20"
+              style={{ clipPath: "polygon(0 40%, 95% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[1.5%] bg-yellow-400 z-30"
+              style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+          </>
+        );
+
+      case "MEMBERSHIP":
+        // Design 4: Geometric diamond pattern (matching top)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[6.5%] bg-indigo-800 z-10"
+              style={{ clipPath: "polygon(15% 0, 85% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[3.5%] bg-cyan-400 z-20"
+              style={{ clipPath: "polygon(25% 0, 75% 0, 90% 100%, 10% 100%)" }}
+            />
+          </>
+        );
+
+      case "COMPLETION":
+        // Design 5: Stepped design (matching top)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[7%] bg-teal-700 z-10"
+              style={{
+                clipPath:
+                  "polygon(0 30%, 20% 60%, 40% 30%, 60% 60%, 80% 30%, 100% 60%, 100% 100%, 0 100%)",
+              }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[3%] bg-lime-400 z-20"
+              style={{ clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+          </>
+        );
+
+      default:
+        // Default design (original Mozilla style)
+        return (
+          <>
+            <div
+              className="absolute bottom-0 left-0 w-full h-[5.5%] bg-[#1a2a3a] z-10"
+              style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-full h-[2.1%] bg-[#ff9800] z-20"
+              style={{ clipPath: "polygon(0 0, 100% 40%, 100% 100%, 0 100%)" }}
+            />
+          </>
+        );
+    }
+  };
+
   return (
     <div className="w-full max-w-[900px] mx-auto aspect-[16/9]">
       <div className="relative w-full h-full bg-white shadow-2xl rounded-xl overflow-hidden border-4 border-gray-200">
-        {/* Top angled bar */}
-        <div
-          className="absolute top-0 left-0 w-full h-[7%] bg-[#1a2a3a] z-10"
-          style={{ clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}
-        />
-        <div
-          className="absolute top-0 left-0 w-full h-[2.8%] bg-[#ff9800] z-20"
-          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 60%)" }}
-        />
-        {/* Bottom angled bar */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-[5.5%] bg-[#1a2a3a] z-10"
-          style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-full h-[2.1%] bg-[#ff9800] z-20"
-          style={{ clipPath: "polygon(0 0, 100% 40%, 100% 100%, 0 100%)" }}
-        />
+        {/* Dynamic Top Bar Design based on categoryCode */}
+        {renderTopBarDesign()}
+        {/* Dynamic Bottom Bar Design based on categoryCode */}
+        {renderBottomBarDesign()}
 
         <div className="relative z-30 flex flex-col items-center justify-center h-full w-full px-[7%] pt-[7%] pb-[7%]">
           {/* Favicon at the top center */}
