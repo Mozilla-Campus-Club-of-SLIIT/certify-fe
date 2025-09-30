@@ -44,7 +44,45 @@ export default function CertificateDetailsPage() {
     }
   }, [credentialId]);
 
-  if (loading) return <div className="text-center mt-16">Loading...</div>;
+  if (loading)
+    return (
+      <div className="bg-white min-h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center space-y-4">
+          {/* Animated Certificate Icon */}
+          <div className="relative">
+            <svg
+              className="w-16 h-16 text-orange-600 animate-bounce"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            {/* Spinning ring around the icon */}
+            <div className="absolute -top-2 -left-2 w-20 h-20 border-4 border-orange-200 border-t-orange-600 rounded-full animate-spin"></div>
+          </div>
+
+          {/* Loading text with fade animation */}
+          <div className="text-center">
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              Loading Certificate
+            </h2>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex space-x-2">
+            <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse delay-75"></div>
+            <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse delay-150"></div>
+          </div>
+        </div>
+      </div>
+    );
   if (error)
     return <div className="text-red-600 text-center mt-16">{error}</div>;
 
