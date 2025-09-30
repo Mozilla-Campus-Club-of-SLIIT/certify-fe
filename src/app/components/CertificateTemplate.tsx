@@ -302,44 +302,45 @@ export default function CertificateTemplate({
 
   return (
     <div className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] 2xl:max-w-[1000px] mx-auto aspect-[16/9]">
-      <div className="relative w-full h-full bg-white rounded-lg sm:rounded-xl overflow-hidden border-2 sm:border-4 border-gray-200">
+      <div className="relative w-full h-full bg-white rounded-lg overflow-hidden border-2 border-gray-200">
         {/* Dynamic Top Bar Design based on categoryCode */}
         {renderTopBarDesign()}
         {/* Dynamic Bottom Bar Design based on categoryCode */}
         {renderBottomBarDesign()}
 
-        <div className="relative z-30 flex flex-col items-center justify-center h-full w-full px-[4%] sm:px-[5%] md:px-[6%] lg:px-[7%] xl:px-[8%] 2xl:px-[10%] pt-[5%] sm:pt-[6%] md:pt-[7%] lg:pt-[8%] xl:pt-[8%] 2xl:pt-[8%] pb-[5%] sm:pb-[6%] md:pb-[7%] lg:pb-[8%] xl:pb-[8%] 2xl:pb-[8%]">
+        <div className="relative z-30 flex flex-col items-center justify-center h-full w-full px-[6%] py-[6%]">
           {/* Logo at the top center - Responsive sizing */}
-          <img
+          <Image
             src="/sliitmozilla-logo.png"
             alt="SLIIT Mozilla Logo"
-            className="w-[20%] sm:w-[18%] md:w-[16%] lg:w-[15%] xl:w-[14%] 2xl:w-[12%] h-[20%] sm:h-[18%] md:h-[16%] lg:h-[15%] xl:h-[14%] 2xl:h-[12%] mb-2 sm:mb-3 md:mb-4 lg:mb-5 rounded mt-1 sm:mt-2"
-            style={{ objectFit: "contain" }}
+            width={100}
+            height={100}
+            className="w-[15%] h-[15%] mb-4 rounded object-contain"
           />
-          {/* Certificate Title - Responsive with fallback sizes */}
-          <div className="flex flex-row items-center justify-center w-full mb-1 sm:mb-2 mt-1 sm:mt-2">
-            <span className="text-[2.2vw] sm:text-[2.0vw] md:text-[1.8vw] lg:text-[1.7vw] xl:text-[1.6vw] 2xl:text-[1.3vw] min-[320px]:text-[18px] min-[768px]:text-[24px] min-[1024px]:text-[28px] min-[1280px]:text-[32px] min-[1536px]:text-[36px] font-normal tracking-wide sm:tracking-widest text-[#223] uppercase text-center">
+          {/* Certificate Title */}
+          <div className="flex flex-row items-center justify-center w-full mb-2">
+            <span className="text-[1.8vw] sm:text-[1.6vw] md:text-[1.4vw] lg:text-[1.2vw] xl:text-[1.0vw] font-normal tracking-wide text-[#223] uppercase text-center">
               {categoryName}
             </span>
           </div>
-          
-          {/* Subtitle - Responsive with fallback sizes */}
-          <div className="text-[1.2vw] sm:text-[1.1vw] md:text-[1.0vw] lg:text-[0.9vw] xl:text-[0.8vw] 2xl:text-[0.65vw] min-[320px]:text-[12px] min-[768px]:text-[14px] min-[1024px]:text-[16px] min-[1280px]:text-[18px] min-[1536px]:text-[20px] font-medium text-[#222] mb-2 sm:mb-3 tracking-wide text-center">
+
+          {/* Subtitle */}
+          <div className="text-[1.0vw] sm:text-[0.9vw] md:text-[0.8vw] lg:text-[0.7vw] xl:text-[0.6vw] font-medium text-[#222] mb-3 tracking-wide text-center">
             We are proudly present this to
           </div>
-          
-          {/* Name - Responsive with fallback sizes */}
-          <div className="font-playfair-display font-semibold text-[3.2vw] sm:text-[3.0vw] md:text-[2.8vw] lg:text-[2.5vw] xl:text-[2.3vw] 2xl:text-[1.8vw] min-[320px]:text-[24px] min-[768px]:text-[32px] min-[1024px]:text-[40px] min-[1280px]:text-[48px] min-[1536px]:text-[56px] text-black mb-1 sm:mb-2 tracking-wide text-center">
+
+          {/* Name */}
+          <div className="font-playfair-display font-semibold text-[2.5vw] sm:text-[2.3vw] md:text-[2.1vw] lg:text-[1.9vw] xl:text-[1.7vw] text-black mb-2 tracking-wide text-center">
             {name}
           </div>
-          
-          {/* Description - Responsive with fallback sizes */}
-          <div className="text-center text-[1.0vw] sm:text-[0.9vw] md:text-[0.8vw] lg:text-[0.8vw] xl:text-[0.7vw] 2xl:text-[0.55vw] min-[320px]:text-[10px] min-[768px]:text-[12px] min-[1024px]:text-[14px] min-[1280px]:text-[16px] min-[1536px]:text-[18px] text-[#222] mb-2 sm:mb-3 max-w-[95%] sm:max-w-[90%] px-2 sm:px-0">
+
+          {/* Description */}
+          <div className="text-center text-[0.8vw] sm:text-[0.75vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] text-[#222] mb-4 max-w-[90%]">
             {description}
           </div>
 
-          {/* Signature and Medal Section - Responsive */}
-          <div className="flex justify-between items-end w-full mt-2 sm:mt-3 md:mt-4 px-1 sm:px-2">
+          {/* Signature and Medal Section */}
+          <div className="flex justify-between items-end w-full mt-4">
             {/* Left issuer */}
             <div className="flex flex-col items-center">
               {signatureLeft && (
@@ -347,27 +348,24 @@ export default function CertificateTemplate({
                   src={signatureLeft}
                   alt="Left Signature"
                   width={50}
-                  height={50}
-                  className="mb-1 w-[8vw] sm:w-[7vw] md:w-[6vw] lg:w-[5.5vw] xl:w-[5vw] 2xl:w-[4vw] h-[4vw] sm:h-[3.5vw] md:h-[3vw] lg:h-[2.75vw] xl:h-[2.5vw] 2xl:h-[2vw] max-w-[50px] sm:max-w-[60px] lg:max-w-[70px] xl:max-w-[80px] 2xl:max-w-[100px] max-h-[30px] sm:max-h-[36px] lg:max-h-[42px] xl:max-h-[48px] 2xl:max-h-[60px] min-w-[25px] sm:min-w-[30px] min-h-[15px] sm:min-h-[18px]"
-                  style={{ objectFit: "contain" }}
+                  height={30}
+                  className="mb-1 w-[6vw] h-[3vw] max-w-[60px] max-h-[36px] object-contain"
                 />
               )}
-              <div className="border-t border-black w-[12vw] sm:w-[11vw] md:w-[10vw] lg:w-[9vw] xl:w-[8vw] 2xl:w-[6vw] mb-1" />
-              <div className="font-semibold text-black text-[1.1vw] sm:text-[1.0vw] md:text-[0.9vw] lg:text-[0.8vw] xl:text-[0.75vw] 2xl:text-[0.6vw] text-center">
+              <div className="border-t border-black w-[10vw] max-w-[80px] mb-1" />
+              <div className="font-semibold text-black text-[0.8vw] sm:text-[0.75vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] text-center">
                 {issuerLeft}
               </div>
-              <div className="text-[0.9vw] sm:text-[0.8vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] 2xl:text-[0.5vw] italic text-gray-700 text-center">
+              <div className="text-[0.7vw] sm:text-[0.65vw] md:text-[0.6vw] lg:text-[0.55vw] xl:text-[0.5vw] italic text-gray-700 text-center">
                 {issuerLeftRole}
               </div>
             </div>
 
-            {/* Medal/Seal - Responsive */}
+            {/* Medal/Seal */}
             <div className="flex flex-col items-center">
               <svg
-                width="4vw"
-                height="4vw"
                 viewBox="0 0 60 60"
-                className="mb-1 sm:w-[3.5vw] sm:h-[3.5vw] md:w-[3vw] md:h-[3vw] lg:w-[2.75vw] lg:h-[2.75vw] xl:w-[2.5vw] xl:h-[2.5vw] 2xl:w-[2vw] 2xl:h-[2vw]"
+                className="w-[3vw] h-[3vw] max-w-[40px] max-h-[40px] mb-1"
               >
                 <circle
                   cx="30"
@@ -379,28 +377,27 @@ export default function CertificateTemplate({
                 />
                 <polygon points="30,50 35,58 30,54 25,58" fill="#FBBF24" />
               </svg>
-              <div className="text-[0.9vw] sm:text-[0.8vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] 2xl:text-[0.5vw] text-gray-600 text-center">
+              <div className="text-[0.7vw] sm:text-[0.65vw] md:text-[0.6vw] lg:text-[0.55vw] xl:text-[0.5vw] text-gray-600 text-center">
                 {new Date(dateIssued).toLocaleDateString()}
               </div>
             </div>
 
-            {/* Right issuer - Responsive */}
+            {/* Right issuer */}
             <div className="flex flex-col items-center">
               {signatureRight && (
                 <Image
                   src={signatureRight}
                   alt="Right Signature"
                   width={50}
-                  height={50}
-                  className="mb-1 w-[8vw] sm:w-[7vw] md:w-[6vw] lg:w-[5.5vw] xl:w-[5vw] 2xl:w-[4vw] h-[4vw] sm:h-[3.5vw] md:h-[3vw] lg:h-[2.75vw] xl:h-[2.5vw] 2xl:h-[2vw] max-w-[50px] sm:max-w-[60px] lg:max-w-[70px] xl:max-w-[80px] 2xl:max-w-[100px] max-h-[30px] sm:max-h-[36px] lg:max-h-[42px] xl:max-h-[48px] 2xl:max-h-[60px] min-w-[25px] sm:min-w-[30px] min-h-[15px] sm:min-h-[18px]"
-                  style={{ objectFit: "contain" }}
+                  height={30}
+                  className="mb-1 w-[6vw] h-[3vw] max-w-[60px] max-h-[36px] object-contain"
                 />
               )}
-              <div className="border-t border-black w-[12vw] sm:w-[11vw] md:w-[10vw] lg:w-[9vw] xl:w-[8vw] 2xl:w-[6vw] mb-1" />
-              <div className="font-semibold text-black text-[1.1vw] sm:text-[1.0vw] md:text-[0.9vw] lg:text-[0.8vw] xl:text-[0.75vw] 2xl:text-[0.6vw] text-center">
+              <div className="border-t border-black w-[10vw] max-w-[80px] mb-1" />
+              <div className="font-semibold text-black text-[0.8vw] sm:text-[0.75vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] text-center">
                 {issuerRight}
               </div>
-              <div className="text-[0.9vw] sm:text-[0.8vw] md:text-[0.7vw] lg:text-[0.65vw] xl:text-[0.6vw] 2xl:text-[0.5vw] italic text-gray-700 text-center">
+              <div className="text-[0.7vw] sm:text-[0.65vw] md:text-[0.6vw] lg:text-[0.55vw] xl:text-[0.5vw] italic text-gray-700 text-center">
                 {issuerRightRole}
               </div>
             </div>
