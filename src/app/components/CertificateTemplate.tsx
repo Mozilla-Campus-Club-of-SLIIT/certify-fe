@@ -319,7 +319,7 @@ export default function CertificateTemplate({
           />
           {/* Certificate Title */}
           <div className="flex flex-row items-center justify-center w-full mb-2">
-            <span className="text-[1.8vw] sm:text-[1.6vw] md:text-[1.4vw] lg:text-[1.2vw] xl:text-[1.0vw] font-normal tracking-wide text-[#223] uppercase text-center">
+            <span className="text-[2.4vw] sm:text-[2.2vw] md:text-[2.0vw] lg:text-[1.8vw] xl:text-[1.6vw] 2xl:text-[1.4vw] font-normal tracking-wide text-[#223] uppercase text-center">
               {categoryName}
             </span>
           </div>
