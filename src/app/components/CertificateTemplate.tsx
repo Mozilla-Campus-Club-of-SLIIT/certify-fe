@@ -342,7 +342,7 @@ export default function CertificateTemplate({
           {/* Signature and Medal Section */}
           <div className="flex justify-between items-end w-full mt-4">
             {/* Left issuer */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center pl-4 sm:pl-6 md:pl-8 lg:pl-10 xl:pl-12">
               {signatureLeft && (
                 <Image
                   src={signatureLeft}
@@ -383,7 +383,7 @@ export default function CertificateTemplate({
             </div>
 
             {/* Right issuer */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center pr-4 sm:pr-6 md:pr-8 lg:pr-10 xl:pr-12">
               {signatureRight && (
                 <Image
                   src={signatureRight}
