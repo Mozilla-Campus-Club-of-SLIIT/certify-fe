@@ -301,8 +301,8 @@ export default function CertificateTemplate({
   };
 
   return (
-    <div className="w-full max-w-[900px] mx-auto aspect-[16/9]">
-      <div className="relative w-full h-full bg-white shadow-2xl rounded-xl overflow-hidden border-4 border-gray-200">
+    <div className="w-full max-w-[700px] mx-auto aspect-[16/9]">
+      <div className="relative w-full h-full bg-white rounded-xl overflow-hidden border-4 border-gray-200">
         {/* Dynamic Top Bar Design based on categoryCode */}
         {renderTopBarDesign()}
         {/* Dynamic Bottom Bar Design based on categoryCode */}
@@ -324,7 +324,7 @@ export default function CertificateTemplate({
           <div className="text-[0.9vw] font-medium text-[#222] mb-3 tracking-wide">
             We are proudly present this to
           </div>
-          <div className="font-playfair-display font-semibold text-[3.5vw] text-black mb-1 tracking-wide">
+          <div className="font-playfair-display font-semibold text-[2.5vw] text-black mb-1 tracking-wide">
             {name}
           </div>
           <div className="text-center text-[0.8vw] text-[#222] mb-3 max-w-[90%]">
