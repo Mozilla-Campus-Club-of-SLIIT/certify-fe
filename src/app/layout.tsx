@@ -16,6 +16,8 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: 'swap', // Add font-display swap for better loading
+  preload: true, // Preload the font
 });
 
 export const metadata: Metadata = {

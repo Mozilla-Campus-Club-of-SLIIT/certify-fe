@@ -316,25 +316,25 @@ export default function CertificateTemplate({
             className="w-[20%] sm:w-[18%] md:w-[16%] lg:w-[15%] xl:w-[14%] 2xl:w-[12%] h-[20%] sm:h-[18%] md:h-[16%] lg:h-[15%] xl:h-[14%] 2xl:h-[12%] mb-2 sm:mb-3 md:mb-4 lg:mb-5 rounded mt-1 sm:mt-2"
             style={{ objectFit: "contain" }}
           />
-          {/* Certificate Title - Responsive */}
+          {/* Certificate Title - Responsive with fallback sizes */}
           <div className="flex flex-row items-center justify-center w-full mb-1 sm:mb-2 mt-1 sm:mt-2">
-            <span className="text-[2.2vw] sm:text-[2.0vw] md:text-[1.8vw] lg:text-[1.7vw] xl:text-[1.6vw] 2xl:text-[1.3vw] font-normal tracking-wide sm:tracking-widest text-[#223] uppercase text-center">
+            <span className="text-[2.2vw] sm:text-[2.0vw] md:text-[1.8vw] lg:text-[1.7vw] xl:text-[1.6vw] 2xl:text-[1.3vw] min-[320px]:text-[18px] min-[768px]:text-[24px] min-[1024px]:text-[28px] min-[1280px]:text-[32px] min-[1536px]:text-[36px] font-normal tracking-wide sm:tracking-widest text-[#223] uppercase text-center">
               {categoryName}
             </span>
           </div>
           
-          {/* Subtitle - Responsive */}
-          <div className="text-[1.2vw] sm:text-[1.1vw] md:text-[1.0vw] lg:text-[0.9vw] xl:text-[0.8vw] 2xl:text-[0.65vw] font-medium text-[#222] mb-2 sm:mb-3 tracking-wide text-center">
+          {/* Subtitle - Responsive with fallback sizes */}
+          <div className="text-[1.2vw] sm:text-[1.1vw] md:text-[1.0vw] lg:text-[0.9vw] xl:text-[0.8vw] 2xl:text-[0.65vw] min-[320px]:text-[12px] min-[768px]:text-[14px] min-[1024px]:text-[16px] min-[1280px]:text-[18px] min-[1536px]:text-[20px] font-medium text-[#222] mb-2 sm:mb-3 tracking-wide text-center">
             We are proudly present this to
           </div>
           
-          {/* Name - Responsive */}
-          <div className="font-playfair-display font-semibold text-[3.2vw] sm:text-[3.0vw] md:text-[2.8vw] lg:text-[2.5vw] xl:text-[2.3vw] 2xl:text-[1.8vw] text-black mb-1 sm:mb-2 tracking-wide text-center">
+          {/* Name - Responsive with fallback sizes */}
+          <div className="font-playfair-display font-semibold text-[3.2vw] sm:text-[3.0vw] md:text-[2.8vw] lg:text-[2.5vw] xl:text-[2.3vw] 2xl:text-[1.8vw] min-[320px]:text-[24px] min-[768px]:text-[32px] min-[1024px]:text-[40px] min-[1280px]:text-[48px] min-[1536px]:text-[56px] text-black mb-1 sm:mb-2 tracking-wide text-center">
             {name}
           </div>
           
-          {/* Description - Responsive */}
-          <div className="text-center text-[1.0vw] sm:text-[0.9vw] md:text-[0.8vw] lg:text-[0.8vw] xl:text-[0.7vw] 2xl:text-[0.55vw] text-[#222] mb-2 sm:mb-3 max-w-[95%] sm:max-w-[90%] px-2 sm:px-0">
+          {/* Description - Responsive with fallback sizes */}
+          <div className="text-center text-[1.0vw] sm:text-[0.9vw] md:text-[0.8vw] lg:text-[0.8vw] xl:text-[0.7vw] 2xl:text-[0.55vw] min-[320px]:text-[10px] min-[768px]:text-[12px] min-[1024px]:text-[14px] min-[1280px]:text-[16px] min-[1536px]:text-[18px] text-[#222] mb-2 sm:mb-3 max-w-[95%] sm:max-w-[90%] px-2 sm:px-0">
             {description}
           </div>
 
