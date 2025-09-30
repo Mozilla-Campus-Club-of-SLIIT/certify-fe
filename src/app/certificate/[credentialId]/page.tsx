@@ -89,7 +89,7 @@ export default function CertificateDetailsPage() {
     return <div className="text-red-600 text-center mt-16">{error}</div>;
 
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center">
+    <div className="bg-white min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-16">
       {certificate ? (
         <CertificateTemplate
           name={certificate.name}
@@ -97,7 +97,7 @@ export default function CertificateDetailsPage() {
           dateIssued={certificate.dateIssued}
           categoryName={certificate.categoryName}
           categoryCode={certificate.categoryCode}
-          description={`This is to certify that ${certificate.name} has contributed as a ${certificate.course}.`}
+          description={`This is to certify that ${certificate.name} ${certificate.course}.`}
           signatureLeft={certificate.signatures?.[0]?.image_b64}
           signatureRight={certificate.signatures?.[1]?.image_b64}
         />
