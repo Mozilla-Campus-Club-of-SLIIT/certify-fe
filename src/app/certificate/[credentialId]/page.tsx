@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import CertificateTemplate from "../../components/CertificateTemplate";
 
 type Certificate = {
   credentialId: string;
@@ -12,6 +11,7 @@ type Certificate = {
   categoryName?: string; // dynamic certificate category from DB
   categoryCode?: string; // unique code for design selection
   signatures?: { image_b64: string }[];
+  image_b64?: string; // backend generated image
 };
 
 export default function CertificateDetailsPage() {
@@ -89,18 +89,30 @@ export default function CertificateDetailsPage() {
     return <div className="text-red-600 text-center mt-16">{error}</div>;
 
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-16">
+    <div className="bg-white min-h-screen flex flex-col items-center justify-center p-6">
       {certificate ? (
-        <CertificateTemplate
-          name={certificate.name}
-          course={certificate.course}
-          dateIssued={certificate.dateIssued}
-          categoryName={certificate.categoryName}
-          categoryCode={certificate.categoryCode}
-          description={`This is to certify that ${certificate.name} ${certificate.course}.`}
-          signatureLeft={certificate.signatures?.[0]?.image_b64}
-          signatureRight={certificate.signatures?.[1]?.image_b64}
-        />
+        certificate.image_b64 ? (
+          <div className="w-full flex flex-col items-center">
+            <img
+              src={`data:image/png;base64,${certificate.image_b64}`}
+              alt={`Certificate for ${certificate.name}`}
+              className="max-w-full shadow-md border border-gray-300"
+            />
+            <button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = `data:image/png;base64,${certificate.image_b64}`;
+                link.download = `${certificate.credentialId}.png`;
+                link.click();
+              }}
+              className="mt-6 px-5 py-2 rounded bg-orange-600 text-white text-sm font-medium hover:bg-orange-500 transition"
+            >
+              Download Certificate
+            </button>
+          </div>
+        ) : (
+          <div className="text-gray-600">Image not available</div>
+        )
       ) : (
         <div className="text-center">Certificate not found</div>
       )}
