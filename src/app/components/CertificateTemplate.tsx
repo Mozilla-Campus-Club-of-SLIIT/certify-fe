@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-type CertificateTemplateProps = {
+type CertificateTemplateProps = Readonly<{
   name: string;
   course: string;
   dateIssued: string;
@@ -14,7 +14,7 @@ type CertificateTemplateProps = {
   description?: string;
   signatureLeft?: string; // base64 image
   signatureRight?: string; // base64 image
-};
+}>;
 
 export default function CertificateTemplate({
   name,
